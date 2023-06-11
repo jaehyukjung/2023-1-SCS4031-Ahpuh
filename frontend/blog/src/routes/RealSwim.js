@@ -14,21 +14,17 @@ function RealSwim({playList, index}){
             video:videoType,
         });
     };
-    const handleButtonClick = () => {
-        // 다른 페이지로 이동하고자 하는 경로를 설정합니다.
-        const nextPagePath = '/member';
-    
-        // 페이지 이동
-        navigate(nextPagePath);
+    const navigateMember = () => {
+        navigate("/member");
       };
     return(
         <>
             <h2>실시간 수영장 화면</h2>
             <center>
                 <div style={{align:"center"}}>
-                    <ReactPlayer
+                    {/* <ReactPlayer
                         className='react-player'
-                        url={'https://youtu.be/CwVmxWkY6Zw'}    // 플레이어 url
+                        url={'https://www.youtube.com/embed/fcncKfUrds4'}    // 플레이어 url
                         align = "center"
                         width='800px'         // 플레이어 크기 (가로)
                         height='500px'        // 플레이어 크기 (세로)
@@ -39,7 +35,11 @@ function RealSwim({playList, index}){
                         pip={true}            // pip 모드 설정 여부
                         poster={'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg'}   // 플레이어 초기 포스터 사진
                         // onEnded={() => handleVideo()}  // 플레이어 끝났을 때 이벤트
-                    />
+                    /> */}
+                    <video  width='800px'         // 플레이어 크기 (가로)
+                        height='500px'>
+                    <source src="img/cctv.mp4" type="video/mp4"></source>
+                </video>
                 </div>
             </center>
             <br></br>
@@ -50,7 +50,7 @@ function RealSwim({playList, index}){
                 <div style={{display:'flex', float:'right'}}>
                     <button style={{ fontSize: '13px', padding: '12px 24px',marginLeft: '30px', backgroundColor:'45B881' }}>사고 방송 송출</button>
                     <button style={{ fontSize: '13px', padding: '12px 24px' ,marginLeft: '30px'}}>119 긴급 신고</button>
-                    <button style={{ fontSize: '13px', padding: '12px 24px',marginLeft: '30px' }}>사고 발생 알림</button>
+                    <button style={{ fontSize: '13px', padding: '12px 24px',marginLeft: '30px' }} onClick={navigateMember}>사고 발생 알림</button>
                 </div>
             </div> 
         </>

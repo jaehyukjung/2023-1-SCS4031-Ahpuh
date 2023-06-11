@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../styles/Setting.css';
 
 function Setting(){
@@ -10,11 +11,15 @@ function Setting(){
     const [points2, setPoints2] = useState([]);
     const [points3, setPoints3] = useState([]);
     const [line, setLine] = useState(1);
+    const navigate = useNavigate();
     
     const handleLineChange = (e) => {
       setLine(e.target.value);
       console.log(line);
     }
+    const navigateRealswim = () => {
+      navigate("/realswim");
+    };
 
 
     const handleImageChange1 = (e) => {
@@ -200,9 +205,9 @@ function Setting(){
     };
   
     return (
-      <div>
+      <div style={{  justifyContent: "center"}}>
         <h1>수영장 CCTV 설정</h1>
-        <div style={{display:"inline-block"}}>
+        <div>
           <h2 style={{diplay: "float"}}>라인 개수를 입력하세요 : </h2>
           <div className="form login"style={{diplay: "float"}}>
                 <div class="input-group">
@@ -242,21 +247,26 @@ function Setting(){
             <input type="file" accept="image/*" onChange={handleImageChange2} />
         </div>
         <div>
-            <h2>3번 화면</h2>
-            <div>
-                {selectedImage3 && 
-                <img src={selectedImage3} alt="업로드된 이미지" onClick={handleImageClick3} style={{ cursor: 'crosshair' }}/>}
-                </div>
-                <div>
-                    {points3.length === 2*line && (
-                    <div>
-                      {repeat(line,points3)}
-                    </div>
-                    )}
-                </div>
-            </div>    
-            <input type="file" accept="image/*" onChange={handleImageChange3} />
+          <h2>3번 화면</h2>
+          <div>
+            {selectedImage3 && 
+            <img src={selectedImage3} alt="업로드된 이미지" onClick={handleImageClick3} style={{ cursor: 'crosshair' }}/>}
+          </div>
+          <div>
+           {points3.length === 2*line && (
+              <div>
+                {repeat(line,points3)}
+              </div>
+            )}
+           </div>
+          <input type="file" accept="image/*" onChange={handleImageChange3} />
         </div>
+        <br></br>  <br></br>  <br></br>  
+        <div>
+          <button className = "btn" onClick={navigateRealswim}>확인</button>
+        </div>
+      </div>
+          
     );
   };
   

@@ -1,6 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import "../component/Nav.js";
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -28,65 +29,71 @@ function LoginForm() {
     navigate("/signup");
   };
   const navigateMain = () => {
-    navigate("/realswim");
+    navigate("/setting");
 };
 
 
-  const signIn = () => {
-    fetch('3.37.74.123/admin/sign-in', { 
-      method: 'POST',
-      body: JSON.stringify({
-        "email": email,
-        "pwd": password,
-      }),
-    })
-      .then(response => {
-        if (response.message === 'SUCCESS') {
-          window.localStorage.setItem('token',response.access_token);
-          navigateMain();
-        } else {
-          alert('아이디 또는 비밀번호가 일치하지 않습니다.');
-          console.log('Email:', email);
-          console.log('Password:', password);
-        }
-      });
+  const handleSubmit2 = async (e) => {
+    e.preventDefault();
+  
+    const login = {
+      "email": email,
+      "pwd": password,
+    };
+  
+    try {
+      const response = await axios.post("/admin/sign-in", login); // 응답을 받아옴
+      console.log(response)
+      if (response.data.isSuccess === true) { // response.data로 응답 데이터에 접근
+        window.localStorage.setItem("token", response.data.access_token); // 응답 데이터의 access_token을 localStorage에 저장
+        navigateMain();
+      } else {
+        alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+        console.log("Email:", email);
+        console.log("Password:", password);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div className='wrapper'>
-      <div class="title">
+      <div className="title">
         <h1 style={{fontFamily:"JalnanOTF"}}>로그인</h1>
         <img id="logo" style={{marginTop: "0%"}} alt = "logo" src="img/aupuh_logo.png" />
       </div>
+      <form onSubmit={handleSubmit2}>
       <div className='container'>
         <div className="row">
           <div className="col align-items-center flex-col sign-up">
             <div className="form-wrapper align-items-center">
               <div className="form login">
-                <div class="input-group">
-                  <i class='bx bx-mail-send'></i>
+                <div className="input-group">
+                  <i className='bx bx-mail-send'></i>
                   <input type="email" placeholder="Email" value={email} onChange={handleEmailChange}/>
                 </div>
-                <div class="input-group">
-                  <i class='bx bxs-lock-alt'></i>
+                <div className="input-group">
+                  <i className='bx bxs-lock-alt'></i>
                   <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
                 </div>
-                <button onClick={signIn}>로그인 </button>
+                <button type='submit'>로그인 </button>
                 <div>
-                  <p>
+                  
                   <span>
                     회원이 아니신가요?
                   </span>
                   <div id="login">
                     <button onClick={navigateSignup}style={{padding :"5px"}}>회원가입</button>
                   </div>
-                  </p>  
+               
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      </form>
     </div>
     // <form onSubmit={handleSubmit}>
     //   <div>
