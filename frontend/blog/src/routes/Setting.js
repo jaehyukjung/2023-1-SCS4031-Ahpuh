@@ -196,7 +196,7 @@ function Setting(){
         )
       }
       arr.push(
-        <table>
+        <table style={{width:"50%"}}>
           {head}
           {body}
         </table>
@@ -205,22 +205,21 @@ function Setting(){
     };
   
     return (
-      <div style={{  justifyContent: "center"}}>
+      <div style={{justifyContent: "center"}}>
         <h1>수영장 CCTV 설정</h1>
-        <div>
+        <div className="upper">
           <h2 style={{diplay: "float"}}>라인 개수를 입력하세요 : </h2>
-          <div className="form login"style={{diplay: "float"}}>
-                <div class="input-group">
-                  <i class='bx bx-mail-send'></i>
-                  <input type="number" placeholder="개수" value={line} onChange={(e)=>{setLine(e.target.value);}}/>
-                </div>
-              </div>
+          <div className="form login">
+            <div class="input-group">
+              <input type="number" placeholder="개수" value={line} onChange={(e)=>{setLine(e.target.value);}}/>
+            </div>
+          </div>
         </div>
         <div>
             <h2>1번 화면</h2>
             <div >
                 {selectedImage1 && 
-                <img src={selectedImage1} alt="업로드된 이미지"  onClick={handleImageClick1} style={{ cursor: 'crosshair' }}/>}
+                <img src={selectedImage1} alt="업로드된 이미지"  onClick={handleImageClick1} style={{ cursor: 'crosshair' ,width:"50%"}}/>}
             </div>
             <div>
                 {points1.length === 2*line && (
@@ -229,13 +228,16 @@ function Setting(){
                 </div>
                 )}
             </div>
-            <input type="file" accept="image/*" onChange={handleImageChange1} />
+            <label className="file-input">
+              <span>파일 선택</span>
+              <input type="file" accept="image/*" onChange={handleImageChange1} />
+            </label>
         </div>
         <div>
             <h2>2번 화면</h2>
             <div >
                 {selectedImage2 && 
-                <img src={selectedImage2} alt="업로드된 이미지"  onClick={handleImageClick2} style={{ cursor: 'crosshair' }}/>}
+                <img src={selectedImage2} alt="업로드된 이미지"  onClick={handleImageClick2} style={{ cursor: 'crosshair' ,width:"50%"}}/>}
             </div>
             <div>
                 {points2.length === 2*line && (
@@ -244,13 +246,16 @@ function Setting(){
                 </div>
                 )}
             </div>
-            <input type="file" accept="image/*" onChange={handleImageChange2} />
+            <label className="file-input">
+              <span>파일 선택</span>
+              <input type="file" accept="image/*" onChange={handleImageChange2} />
+            </label>
         </div>
         <div>
           <h2>3번 화면</h2>
           <div>
             {selectedImage3 && 
-            <img src={selectedImage3} alt="업로드된 이미지" onClick={handleImageClick3} style={{ cursor: 'crosshair' }}/>}
+            <img src={selectedImage3} alt="업로드된 이미지" onClick={handleImageClick3} style={{ cursor: 'crosshair' ,width:"50%"}}/>}
           </div>
           <div>
            {points3.length === 2*line && (
@@ -259,11 +264,14 @@ function Setting(){
               </div>
             )}
            </div>
-          <input type="file" accept="image/*" onChange={handleImageChange3} />
-        </div>
-        <br></br>  <br></br>  <br></br>  
-        <div>
-          <button className = "btn" onClick={navigateRealswim}>확인</button>
+           <label className="file-input">
+              <span>파일 선택</span>
+              <input type="file" accept="image/*" onChange={handleImageChange3} />
+            </label>
+            <br></br>  <br></br>  <br></br>  
+          <div>
+            <button className = "btn" onClick={navigateRealswim}>완료</button>
+          </div>
         </div>
       </div>
           

@@ -1,6 +1,32 @@
-#login{
-    display: inline-block;
-    margin-right: 20px;
+#centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* 수정된 부분: 버튼과 "어푸" 사이의 간격 조정 */
+}
+
+#login {
+  margin-bottom: 10px;
+}
+
+#btn {
+  width: 300px;
+  color: black;
+  font-size: 15px;
+  padding: 12px 24px;
+  background-color: #5F5F5F;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid #5F5F5F
+}
+#btn:hover {
+  background-color: #b4d6fa;
 }
 
 #logo{
@@ -8,11 +34,23 @@
     margin-top: 5%;
 }
 
+#logoLogin{
+  width: 15%;
+  margin-top: 2.5%;
+}
+
 #aupuh{
     font-family: 'JalnanOTF';
     font-size: 100px;
     color:#2F88FF;
     text-align: center;
+}
+
+#aupuhLogin{
+  font-family: 'JalnanOTF';
+  font-size: 70px;
+  color:#2F88FF;
+  text-align: center;
 }
 
 body {
@@ -25,22 +63,4 @@ body {
     background-color: white;
 }
 
-.btn {
-    font-family: 'Noto Sans KR';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 10px 40px;
-    margin-bottom : 5px;
-    border: 1px solid #b6b3b3;
-    border-radius: 4px;
-    background-color: #f1f0f0;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bolder;
-  }
-  
-.btn:hover {
-    background-color: #b4d6fa;
-  }
+

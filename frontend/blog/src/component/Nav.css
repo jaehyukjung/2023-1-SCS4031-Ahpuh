@@ -1,9 +1,22 @@
-.navbar{
-    width: 100%;
+.navbar1{
+    float: left;
+    font-size: 20px;
+    width: 10%;
     background-color: white;
-    padding: 15px 5px;
+    padding: 15px 0px;
+    text-align: center;
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
+    font-family: "JalnanOTF"
+}
+.navbar2{
+    float: right;
+    font-size: 20px;
+    width: 90%;
+    background-color: white;
+    padding: 15px 0px;
     text-align: right;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
+    font-family: "JalnanOTF"
 }
 .logo{
     text-align: left;
@@ -14,10 +27,12 @@
     color: black;
     margin: 10px;
     text-decoration: none;
+    font-weight: 10px;
 }
 .Aupuh{
     font-size: large;
     font-family: "JalnanOTF";
-    font-weight: 15px;
+    font-weight: 10px;
     
 }
+

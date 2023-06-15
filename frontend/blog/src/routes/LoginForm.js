@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "../component/Nav.js";
+import "../styles/Main.css";
+
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -29,7 +31,7 @@ function LoginForm() {
     navigate("/signup");
   };
   const navigateMain = () => {
-    navigate("/setting");
+    navigate("/subpage");
 };
 
 
@@ -59,9 +61,9 @@ function LoginForm() {
 
   return (
     <div className='wrapper'>
-      <div className="title">
-        <h1 style={{fontFamily:"JalnanOTF"}}>로그인</h1>
-        <img id="logo" style={{marginTop: "0%"}} alt = "logo" src="img/aupuh_logo.png" />
+      <div id="main">
+        <img id="logoLogin" alt="logo" src="img/aupuh_logo.png" />
+        <h3 id="aupuhLogin">어푸</h3>
       </div>
       <form onSubmit={handleSubmit2}>
       <div className='container'>
@@ -71,22 +73,18 @@ function LoginForm() {
               <div className="form login">
                 <div className="input-group">
                   <i className='bx bx-mail-send'></i>
-                  <input type="email" placeholder="Email" value={email} onChange={handleEmailChange}/>
+                  <input style ={{width:"300px"}}type="email" placeholder="Email" value={email} onChange={handleEmailChange}/>
                 </div>
                 <div className="input-group">
                   <i className='bx bxs-lock-alt'></i>
-                  <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
+                  <input style ={{width:"300px"}} type="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
                 </div>
                 <button type='submit'>로그인 </button>
                 <div>
-                  
                   <span>
                     회원이 아니신가요?
                   </span>
-                  <div id="login">
-                    <button onClick={navigateSignup}style={{padding :"5px"}}>회원가입</button>
-                  </div>
-               
+                    <button onClick={navigateSignup} style={{padding :"5px"}}>회원가입</button>
                 </div>
               </div>
             </div>

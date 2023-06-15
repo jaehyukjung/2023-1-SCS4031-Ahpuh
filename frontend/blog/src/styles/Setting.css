@@ -59,7 +59,7 @@ p {
 }
 
 table {
-  width: 50%;
+  width: 30%;
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -104,14 +104,47 @@ table .danger {
 }
 
 .btn {
-  display: flex;
+  position: relative;
+  display: inline-block;
   justify-content: center;
   padding: 10px 20px;
-  margin-left: 50%;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-family: 'Noto Sans KR';
+}
+
+.file-input {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #a3a3a3;
+  color: white;
+  font-size: 15px;
+  padding: 12px 24px;
+  cursor: pointer;
+  width: 7%;
+  margin-top: 10px;
+}
+
+.file-input input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upper {
+  display: inline-block;
+}
+
+.form.login {
+  font-family: 'Noto Sans KR';
+  display: inline-block;
+  align-items: center;
+  margin-bottom: 10px;
 }
