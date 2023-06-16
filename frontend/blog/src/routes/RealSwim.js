@@ -60,6 +60,7 @@ function RealSwim({playList, index}){
     const [delay, setDelay] = useState(1000);
     const [isRunning, setIsRunning] = useState(false);
 
+
     useInterval(() => {
         setCount(count + 1);
         if (screenIndex === 0){
@@ -230,7 +231,30 @@ function RealSwim({playList, index}){
                 </div>
                 <div style={{display:'flex', float:'right'}}>
                     <button style={{color:'white', fontSize: '15px', padding: '12px 24px',marginLeft: '30px', backgroundColor:'#3C76AB', border:"none", borderRadius:'10px' }} onClick={playBroadcastAudio}><strong>사고 방송 송출</strong></button>
-                    <button style={{color:'white', fontSize: '15px', padding: '12px 24px' ,marginLeft: '30px', backgroundColor:'#E02E2E', border:"none", borderRadius:'10px'}}><strong>119 긴급 신고</strong></button>
+                    <button onClick={()=>{
+                      Swal.fire({
+                        title: "119 긴급 신고",
+                        text: "신고하겠습니까?",
+                        icon: "info",
+                        showCancelButton: true,
+                        confirmButtonText: "확인",
+                        cancelButtonText: "취소",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                          Swal.fire({
+                            title: "사고 발생 알림",
+                            text: "보호자에게 연락하시겠습니까?",
+                            icon: "success",
+                            showCancelButton: true,
+                            confirmButtonText: "확인",
+                            cancelButtonText: "취소",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              navigate("/member");
+                            }
+                          });
+                        }})
+                    }} style={{color:'white', fontSize: '15px', padding: '12px 24px' ,marginLeft: '30px', backgroundColor:'#E02E2E', border:"none", borderRadius:'10px'}}><strong>119 긴급 신고</strong></button>
                     <button style={{color:'white', fontSize: '15px', padding: '12px 24px',marginLeft: '30px', backgroundColor:'#645C30',border:"none",borderRadius:'10px' }} onClick={navigateMember}><strong>사고 발생 알림</strong></button>
                 </div>
             </div>

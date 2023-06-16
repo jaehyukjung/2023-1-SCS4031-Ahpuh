@@ -148,7 +148,7 @@ function Member(){
               <td>여</td>
               <td>2001.07.25</td>
               <td>01092213455</td>
-              <td><button>전화</button></td>
+              <td><button onClick={handleCallButton}>전화</button></td>
             </tr>
             <tr>
               <td>
@@ -160,7 +160,7 @@ function Member(){
               <td>여</td>
               <td>2000.04.22</td>
               <td>01092213455</td>
-              <td><button>전화</button></td>
+              <td><button onClick={handleCallButton}>전화</button></td>
             </tr>
             <tr>
               <td>
@@ -172,7 +172,7 @@ function Member(){
               <td>여</td>
               <td>2000.11.22</td>
               <td>01092213455</td>
-              <td><button>전화</button></td>
+              <td><button onClick={handleCallButton}>전화</button></td>
             </tr>
             <tr>
               <td>
@@ -184,7 +184,7 @@ function Member(){
               <td>여</td>
               <td>2000.08.22</td>
               <td>01092213455</td>
-              <td><button>전화</button></td>
+              <td><button onClick={handleCallButton}>전화</button></td>
             </tr>
             {members.map(member => (
               <tr key={member.id}>
